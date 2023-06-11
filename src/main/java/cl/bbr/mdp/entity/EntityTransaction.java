@@ -1,7 +1,7 @@
 package cl.bbr.mdp.entity;
 
 import java.io.Serializable;
-
+import java.time.LocalDateTime;
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,6 +30,12 @@ public class EntityTransaction implements Serializable {
 
 	@Column(name = "type")
 	private String type;
+
+	@Column(name = "user")
+	private String user;
+
+	@Column(name = "datetrx")
+	private LocalDateTime datetrx;
 
 	public Long getId() {
 		return id;
@@ -67,9 +73,31 @@ public class EntityTransaction implements Serializable {
 		return serialVersionUID;
 	}
 
-	@Override
-	public String toString() {
-		return "EntityTransaction [id=" + id + ", commerce=" + commerce + ", amount=" + amount + ", type=" + type + "]";
+	public String getUser() {
+		return user;
 	}
 
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public LocalDateTime getDatetrx() {
+		return datetrx;
+	}
+
+	public void setDatetrx(LocalDateTime datetrx) {
+		this.datetrx = datetrx;
+	}
+
+	@Override
+	public String toString() {
+		return "EntityTransaction{" +
+				"id=" + id +
+				", commerce='" + commerce + '\'' +
+				", amount=" + amount +
+				", type='" + type + '\'' +
+				", user='" + user + '\'' +
+				", datetrx=" + datetrx +
+				'}';
+	}
 }
